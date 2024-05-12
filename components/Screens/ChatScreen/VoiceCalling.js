@@ -1,27 +1,19 @@
 import React, { useRef, useState, useEffect } from 'react';
 import {
-    SafeAreaView,
-    Modal,
     StyleSheet,
     Text,
     View,
-    Switch,
-    FlatList,
     TouchableOpacity,
 } from 'react-native';
 import { PermissionsAndroid, Platform } from 'react-native';
 import {
     ClientRoleType,
     createAgoraRtcEngine,
-    IRtcEngine,
-    RtcSurfaceView,
     ChannelProfileType,
 } from 'react-native-agora';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRoute } from '@react-navigation/native';
 import privateAPI from '../../api/privateAPI';
 
@@ -44,7 +36,6 @@ export default function VoiceCalling({ navigation }) {
     const [remoteUserJoined, setRemoteUserJoined] = useState(false);
     const [FcmTokenOfRemoteUser, setFCMTokenOfRemoteUser] = useState(null);
 
-
     const getPermission = async () => {
         if (Platform.OS === 'android') {
             await PermissionsAndroid.requestMultiple([
@@ -53,6 +44,7 @@ export default function VoiceCalling({ navigation }) {
             ]);
         }
     };
+
     const GetFCMTokenOfRemoteUser = async () => {
         try {
             const res = await privateAPI.get(`/chat/getFirebaseTokenByuserId?userId=${parseInt(remoteUserId)}`);
@@ -67,15 +59,9 @@ export default function VoiceCalling({ navigation }) {
         }
     }
 
-
-
-
     useEffect(() => {
         setupVideoSDKEngine();
     }, []);
-
-
-
 
     const SendCalligNotifcationToRemoteUser = async (FCMToken) => {
 
@@ -141,7 +127,6 @@ export default function VoiceCalling({ navigation }) {
         }
     };
 
-
     const join = async () => {
         console.log('Attempt to JOin', channelName, token, uid)
 
@@ -198,16 +183,13 @@ export default function VoiceCalling({ navigation }) {
         setTimer(0)
     };
 
-
     const formatTime = (timeInSeconds) => {
         const minutes = Math.floor(timeInSeconds / 60);
         const seconds = timeInSeconds % 60;
         return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
 
-
     if (uid) {
-
         return (
             <View style={styles.VideoCallWaitingScreen}>
                 <View style={[styles.VideoCallWaitinConat, { justifyContent: 'flex-start' }]}>
@@ -249,8 +231,6 @@ export default function VoiceCalling({ navigation }) {
         )
 
     }
-
-
 }
 
 const styles = StyleSheet.create({
