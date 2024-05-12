@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "629949635855",
+    "project_id": "film-hook-d1d7d",
+    "storage_bucket": "film-hook-d1d7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629949635855:android:bf866e8da14f54fcf0b27a",
+        "android_client_info": {
+          "package_name": "com.projectfh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLIoMwT4DQurepj7YWUjT_RFlBVFdUSJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
