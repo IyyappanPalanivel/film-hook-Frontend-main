@@ -35,6 +35,7 @@ export default function VoiceCalling({ navigation }) {
     const [isRunning, setIsRunning] = useState(false);
     const [remoteUserJoined, setRemoteUserJoined] = useState(false);
     const [FcmTokenOfRemoteUser, setFCMTokenOfRemoteUser] = useState(null);
+    const [audioEnable, setAudioEnable] = useState(true);
 
     const getPermission = async () => {
         if (Platform.OS === 'android') {
@@ -64,7 +65,6 @@ export default function VoiceCalling({ navigation }) {
     }, []);
 
     const SendCalligNotifcationToRemoteUser = async (FCMToken) => {
-
         try {
             const res = await privateAPI.post('/chat/send-fcm-message', {
                 token: FCMToken,
@@ -153,7 +153,7 @@ export default function VoiceCalling({ navigation }) {
             setIsJoined(false);
             stopTimer()
             setMessage('You left the channel');
-            console.log("Video Call distoryed")
+            console.log("Voice Call distoryed")
             navigation.goBack()
         } catch (e) {
             console.log(e);
@@ -189,6 +189,14 @@ export default function VoiceCalling({ navigation }) {
         return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
 
+    const switchMute = () => {
+        if (audioEnable) {
+            agoraEngineRef.current?.muteLocalAudioStream();
+        } else {
+            agoraEngineRef.current?.enableLocalAudio();
+        }
+    } 
+
     if (uid) {
         return (
             <View style={styles.VideoCallWaitingScreen}>
@@ -218,7 +226,7 @@ export default function VoiceCalling({ navigation }) {
                 </View>
                 <View style={[styles.VideoCallWaitinConat, { justifyContent: ((isJoined && remoteUserJoined && uid) || channelNameFromNotify) ? 'space-between' : 'center' }]}>
                     {((isJoined && remoteUserJoined && uid) || channelNameFromNotify) && (
-                        <MaterialIcons name={audioEnable ? "volume-up" : "volume-off"} size={24} color="black" onPress={EnableDisEnbaudio} />
+                        <MaterialIcons name={audioEnable ? "volume-up" : "volume-off"} size={24} color="black" onPress={switchMute} />
                     )}
                     <TouchableOpacity style={styles.EndCallBTNView} onPress={leave}>
                         <MaterialIcons name="call-end" size={35} color="white" />
