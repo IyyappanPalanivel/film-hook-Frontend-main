@@ -22,10 +22,6 @@ import PublicAPI from '../../../api/publicAPI';
 import { Alert } from 'react-native';
 import messaging from '@react-native-firebase/messaging';
 
-const user1 = {
-  email: '',
-  password: ''
-}
 export default function Login() {
 
   const user1 = {
@@ -242,11 +238,11 @@ export default function Login() {
             <Text style={styles.loginButtonText}>Login</Text>
           </TouchableOpacity>
 
-          {/* <TouchableOpacity 
+          <TouchableOpacity 
           style={styles.loginButton}
             onPress={switchUser2}>
             <Text style={styles.loginButtonText}>Switch User 2</Text>
-          </TouchableOpacity> */}
+          </TouchableOpacity>
 
           <View style={{ flexDirection: 'row', top: responsiveHeight(20) }}>
 

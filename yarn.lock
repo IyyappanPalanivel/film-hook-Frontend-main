@@ -3079,16 +3079,6 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-agora-react-native-rtm@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/agora-react-native-rtm/-/agora-react-native-rtm-1.5.1.tgz#e1c1cb3ba330b0f4d553859eb30758874763ee76"
-  integrity sha512-docAyX6O5J0eX8RCRAjtn7wUcks/Fq1v3S0w40fR9zf9k3mm+GLCP5kYiCy16p4h2o6v9JUaDQgUsTP/wv/s4g==
-
-agora-rn-uikit@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/agora-rn-uikit/-/agora-rn-uikit-5.0.2.tgz#02e9681cfde4d3909302b8c15312bcb1c975d820"
-  integrity sha512-r1jKK7/Q4fXaPr4lItZo1OSIc2SmHan2KdeKYyMNi51nhAWciZWLKls5UHCj7anUI0NdBS7fudRyDxtOAy3brQ==
-
 ajv@^6.12.4:
   version "6.12.6"
   resolved "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz"
@@ -7870,10 +7860,10 @@ react-native-agora-chat@^1.2.1:
   resolved "https://registry.npmjs.org/react-native-agora-chat/-/react-native-agora-chat-1.2.1.tgz"
   integrity sha512-E/65WI+AOttrFWbD9F5yikLd/AHZsk/3I3h6GnJYnP9nbZIv7iv+yVoHNhoVL0Xf33xUAK19wj60iFbEfTfskA==
 
-react-native-agora@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/react-native-agora/-/react-native-agora-4.3.1.tgz#3b085583fa72ac4d25a28ea579be4b3c2e6060ce"
-  integrity sha512-6iZh9ghptApjGZ8aAB5xlzNHmt270NYLXYMMccfKuWvWCmiE7EZCGZFEgiXvl+pMDivX8TsJKtWnQTCX0O2rxA==
+react-native-agora@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-agora/-/react-native-agora-4.3.0.tgz#3649605719e51ef9daa8111e328891a18c9180ba"
+  integrity sha512-mvOjPdYcZSJk6amzccD8LLWXiOOrx6Lcc+nqyyiRgKD/2f/fCs42ucsh/qr2WEgSrIYT46LKABVdN9VCveVfrA==
   dependencies:
     buffer "^6.0.3"
     eventemitter3 "^5.0.1"
