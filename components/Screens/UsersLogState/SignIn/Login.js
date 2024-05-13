@@ -242,10 +242,11 @@ export default function Login() {
             <Text style={styles.loginButtonText}>Login</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.loginButton}
+          {/* <TouchableOpacity 
+          style={styles.loginButton}
             onPress={switchUser2}>
             <Text style={styles.loginButtonText}>Switch User 2</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <View style={{ flexDirection: 'row', top: responsiveHeight(20) }}>
 

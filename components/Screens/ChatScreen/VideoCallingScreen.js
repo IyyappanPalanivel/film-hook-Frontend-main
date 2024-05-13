@@ -23,6 +23,8 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRoute } from '@react-navigation/native'; // Import useRoute hook
 import privateAPI from '../../api/privateAPI';
+import AgoraUIKit from 'agora-rn-uikit';
+import { ChatClient } from 'react-native-agora-chat';
 
 export default function VideoCallingScreen({ navigation }) {
 
@@ -271,6 +273,47 @@ export default function VideoCallingScreen({ navigation }) {
     }
 
 }
+
+// RN UIKIT Video call
+// export default function VideoCallingScreen({ navigation }) {
+//     const route = useRoute();
+//     const { loginedUsername, remoteUserId, userName, loggedUserId, channelToken, channelNameFromNotify, randomchannelName } = route.params;
+//     const appId = 'e0580e01a75e494db4c54b3f3e050bf2'
+//     const [token, setToken] = useState('007eJxTYIiTOhoYWef2WnlZ5Frvw6UZKU8r877GHZ3VI3SfMW5h+G4FhlQDUwuDVAPDRHPTVBNLk5Qkk2RTkyTjNGOghEFSmtGuZQ5pDYGMDE9XVrAyMkAgiM/OkJKam59YUMDAAAC+wCFb');
+//     const channelName = "demoapp";
+
+//     const uid = parseInt(loggedUserId)
+//     const agoraEngineRef = useRef(null); // Agora engine instance
+
+//     const chatClient = ChatClient.getInstance();
+
+//     useEffect(() => {
+//         chatClient
+//             .loginWithAgoraToken(uid, token)
+//             .then(() => {
+//                 rollLog('login operation success.');
+//             })
+//             .catch(reason => {
+//                 rollLog('login fail: ' + JSON.stringify(reason));
+//             });
+//     }, []);
+
+//     const [videoCall, setVideoCall] = useState(true);
+//     const connectionData = {
+//         appId: appId,
+//         channel: channelName,
+//         token: token,
+//         uid: uid
+//     };
+//     const rtcCallbacks = {
+//         EndCall: () => setVideoCall(false),
+//     };
+//     return videoCall ? (
+//         <AgoraUIKit connectionData={connectionData} rtcCallbacks={rtcCallbacks} />
+//     ) : (
+//         <Text onPress={() => setVideoCall(true)}>Start Call</Text>
+//     );
+// }
 
 const styles = StyleSheet.create({
     VideoCallWaitingScreen: {
