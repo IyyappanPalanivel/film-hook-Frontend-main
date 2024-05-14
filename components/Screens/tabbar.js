@@ -643,6 +643,8 @@ const TopBar = () => {
 
   useEffect(() => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
+      let payload = JSON.parse(JSON.stringify(remoteMessage)).data
+      console.log('payload',payload);
       setIncomingCallData(JSON.parse(JSON.stringify(remoteMessage)).data)
       setVisibleCallIncoming(true)
     });
